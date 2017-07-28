@@ -3,7 +3,10 @@
     <div class="post">
         <div class="vacancy_name">
             <h4>{{posts.name}}</h4>
+            <div class='date'>{{dateNew}}</div>
+            
         </div>
+            
         
         <div class="footer_info">
            <div class="company_name">
@@ -53,11 +56,11 @@
 
 <script>
     export default {
-        name: "post",
-        posts: null,
+       
         data() {
             return {
-                page: null,
+                
+                
             }
         },
         computed: {
@@ -78,6 +81,9 @@
             },
             currentPage() {
                 return this.$store.state.currentPage
+            },
+            dateNew() {
+                return this.$store.state.dateNew
             }
 
 
@@ -92,6 +98,7 @@
         },
         created: function() {
             this.$store.dispatch('allPosts', this.page)
+            this.$store.dispatch('date')
 
         }
 
@@ -184,6 +191,8 @@
         font-size: 15px;
     }
     
+
+    
     .location {
         height: 100%;
         width: 22%;
@@ -226,35 +235,38 @@
     .discription {
         width: 85%;
         border-left: 9px solid #60abcd;
-        padding-left: 40px;
         line-height: 15px;
-        padding: 15px 40px;
+        padding: 15px 0px 15px 50px;
     }
     
+    .date {
+        padding-bottom: 5px;
+    }    
     #parallelogram {
         margin-left: 10px;
-        left: 255px;
-        top: 57.5px;
+        left: 240px;
+        top: 83px;
         position: absolute;
-        width: 13px;
-        height: 75px;
+        width: 10px;
+        height: 68px;
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-        background: #f2f9fe;
+        background: #F2F9FE;
+        
     }
     
     #parallelogram_two {
         margin-left: 10px;
         left: 410px;
-        top: 57.5px;
+        top: 83px;
         position: absolute;
-        width: 13px;
-        height: 75px;
+        width: 10px;
+        height: 68px;
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-        background: #f2f9fe;
+        background: #F2F9FE;
     }
     
     .link {

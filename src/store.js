@@ -13,11 +13,14 @@ state: {
     currentPage: 1, 
     pageRanger: 1, 
     pageRange: 2,
-    totalPage: 10,
+    totalPage: 30,
     perPage: 10,
     page: 1,
     id: null,
-    link: "https://jobs.tut.by/vacancy/21716043?query=Junior"
+    link: "https://jobs.tut.by/vacancy/21716043?query=Junior",
+    dateFrom: '1498739580000',
+    dateNew: null, 
+    
         
 
   },
@@ -34,10 +37,17 @@ state: {
          id(state, {item}) {
              state.id = item
          },
+         dateNew(state, {item}){
+             state.dateNew = item
+         }
          
 
 
 
+     },
+     getters: {
+
+                   
      },
     actions: {
         allPosts: function ({ commit }, page, limit ) {
@@ -48,23 +58,33 @@ state: {
                     }
                 }
         axios.get('https:/jsonplaceholder.typicode.com/comments', options).then((response) => {
-            console.log(response)
+            response.data.forEach(post => {           if(post.isFavorite = 'underfined'){               post.isFavorite = false;  }        });
             commit('posts', { item: response.data })
             commit('id', { item: response.data.id })
             commit('currentPage', { item: page })
             commit('total', { item: response.data.length })
             }, (err) => {
             console.log(err)
+            
           })
     }, 
         
         link() {
-            var x = state.link
+            var x = store.state.link
             return parent.location = x
+            },
+        
+        
+        date({commit}){
+                var x = parseInt(store.state.dateFrom);
+                var d = new Date(x) ;
+                var month = d.getUTCMonth() + 1; 
+                var day = d.getUTCDate();
+                var year = d.getUTCFullYear();
+                var newdate = day + "/" + month + "/" + year;
+                commit('dateNew', { item: newdate })
             }
-
-     
-         
-}   
+      
+    }   
 })
  export default store

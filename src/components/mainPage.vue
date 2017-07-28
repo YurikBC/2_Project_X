@@ -1,16 +1,20 @@
 <template>
     
     <div>
-        <pagination></pagination>
-        
+       
+      
+<br>
 
-    
+<paginationtest v-bind:col='parseInt(this.$route.params.page)' v-bind:dot="parseInt(this.total)"></paginationtest>
+   
+     <br>
+     
     <div class="container">
     <div class="post" v-for="post in posts">
        <router-link :to= "{name: 'post', params: {id: post.id}}" > 
             <div class="top_cont">
     
-                <div class="square"></div> 
+                <div class="square"><p>{{dateNew}}</p></div> 
                 <div class="triangle"></div>
             </div>
             
@@ -59,15 +63,19 @@
           </router-link>
           </div>
     </div>
-    
-    
-            <pagination></pagination>
+    <br>
+  <paginationtest v-bind:col='parseInt(this.$route.params.page)' v-bind:dot="parseInt(this.total)"></paginationtest>
+     
+           
     </div>
+    
+   
 </template>
 
 
-<script>
-import pagination from './pagination.vue'   
+<script> 
+import paginationtest from './paginationTest.vue'   
+ 
 
 export default {
         name: "mainPage",
@@ -78,17 +86,29 @@ export default {
             }
         },
         components: {
-            pagination
+            paginationtest
         },
+
+        beforeRouteUpdate (to, from, next) {
+        next(),next(false),
+        this.allPosts(this.$route.params.page)
+                
+        },
+
+    
+    
         computed: {
             total() {
-                return this.$store.state.total
+                return this.$store.state.totalPage
             },
             posts() {
                 return this.$store.state.posts
             },
             currentPage() {
                 return this.$store.state.currentPage
+            },
+            dateNew() {
+                return this.$store.state.dateNew
             }
 
             
@@ -96,12 +116,18 @@ export default {
     methods: {
         allPosts(page, limit){
         this.$store.dispatch('allPosts', page, limit)
-        }  
+        },
+        
+            
+        
+        
+
     },
 
-    created() {
-           this.allPosts(this.currentPage)
-            
+   created() {
+           this.allPosts(this.$route.params.page)
+            this.$store.dispatch('date')
+                   
     }
     }
     
@@ -328,13 +354,9 @@ export default {
         height: 35px;
         padding-top: 5px;
         width: 35%;
-        
-       
-        
-       
+         
         
     }
-    
     
 
     
@@ -436,7 +458,7 @@ export default {
         width: 120px;
         border-radius: 13px;
         padding: 15px;
-        margin: auto
+        margin: auto;
     }
 
 
@@ -444,7 +466,6 @@ export default {
     
     .square {
     background: #039BE5;
-        
     width: 18%;
     height: 20px;
     }
@@ -475,7 +496,7 @@ export default {
             
     }
     span {
-       color: black 
+       color: black ;
     }
 
  
@@ -498,10 +519,17 @@ export default {
     }
     
     .post_cont:active {
-        padding: 1.5px;
+        padding: 1.5px;<paginationtest v-bind:col='parseInt(this.$route.params.page)';
+        v-bind:dot="parseInt(this.total)";
         transition: 0.05;
 
         
+    }
+    
+    .square p {
+        margin: 0;
+        padding-left: 10px;
+        color: white;
     }
 
     
