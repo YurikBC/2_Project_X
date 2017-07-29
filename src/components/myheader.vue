@@ -2,6 +2,12 @@
            <header>
             <div class="header">
                 <ul>
+                   
+                   <li>
+                      <router-link to="/">
+                       <img src="/src/img/exposit3.png" alt="">
+                       </router-link>
+                   </li>
                     <li>
                         <router-link to="/">
                             <p>Главная</p>
@@ -11,18 +17,16 @@
                         <router-link to="/contacts">
                             <p>Контакты</p>
                         </router-link>
-                    </li>  
-                      
-                        <div class="header_right">              
-                       <li>
-                       
+                    </li>                 
+                <div class="right_container">
+                    <li>
                        <router-link to="/registration">
                           <div class="reg">
-                           <p >Регистрация</p>
+                               <p >Регистрация</p>
                            </div>
                         </router-link>
                     </li>  
-                     </div>                      
+                                          
                       <li >
                        <div class="dropdown">
        
@@ -30,7 +34,7 @@
                
                        </div>
                     </li>
-                       
+                </div>    
                 </ul>
             </div>
 
@@ -65,7 +69,7 @@ header {
     background-color: #039BE5 !important;
     font-size: 20px;
     font-weight: 300;
-    padding-left: 50px;
+    padding-left: 15px;
     margin-top: 0px;
     min-height: 80px;
 
@@ -88,17 +92,29 @@ header ul {
     
     .reg > p {
         font-size: 20px;
-        background-color: rgb(17, 93, 185);
+        background-color: #E55D03;
         padding: .5em 1.3em;
         border-radius: 5px;
        
 
     }
     
-    .header_right{
-        display: inline-block;
-        margin-left: 1000px;
+    .dropdown {
+       
         
+    }
+    
+    .right_container{
+        display: inline-block;
+        float: right;
+        margin-right: 20px;
+       
+        
+    }
+    
+    img {
+        height: 50px;
+        margin-right: 30px;
     }
 
 

@@ -1,9 +1,12 @@
 <template>
     
-    <div>
-       
-      
-<br>
+    <div class="mainPage">
+    
+    <div class="section_1">
+    <filtration></filtration>
+    </div>
+    
+    <div class="section_2">
 
 <paginationtest v-bind:col='parseInt(this.$route.params.page)' v-bind:dot="parseInt(this.total)"></paginationtest>
    
@@ -29,9 +32,9 @@
                     <router-link :to= "{name: 'post', params: {id: post.id}}" >{{post.name }} 
                     </router-link> </div>
                     
-               
+              
                 <div class="icon_star">
-                    <i class="material-icons">star_rate</i>
+                     <favorite v-bind:favPost='parseInt(post.id)'></favorite>
                 </div>
             </div>
 
@@ -65,7 +68,7 @@
     </div>
     <br>
   <paginationtest v-bind:col='parseInt(this.$route.params.page)' v-bind:dot="parseInt(this.total)"></paginationtest>
-     
+     </div>
            
     </div>
     
@@ -75,6 +78,8 @@
 
 <script> 
 import paginationtest from './paginationTest.vue'   
+import favorite from './favorite.vue'   
+import filtration from './filtration.vue'   
  
 
 export default {
@@ -86,13 +91,13 @@ export default {
             }
         },
         components: {
-            paginationtest
+            paginationtest, favorite, filtration
         },
 
         beforeRouteUpdate (to, from, next) {
         next(),next(false),
         this.allPosts(this.$route.params.page)
-                
+               
         },
 
     
@@ -110,6 +115,7 @@ export default {
             dateNew() {
                 return this.$store.state.dateNew
             }
+            
 
             
         },
@@ -127,6 +133,7 @@ export default {
    created() {
            this.allPosts(this.$route.params.page)
             this.$store.dispatch('date')
+    
                    
     }
     }
@@ -138,11 +145,19 @@ export default {
 
 
 <style scoped>
+    .mainPage {
+          display: flex;
+          flex-direction: row;
+          height: 100%;
+        
+    }
 
     .container {
         display: block;
         box-sizing: border-box;
          margin-top: 20px;
+       float: left;
+      
     }
     
     .post {
@@ -532,5 +547,13 @@ export default {
         color: white;
     }
 
-    
+    .section_1{
+        width: 20%;
+    }    
+    .section_2{
+        width: 80%;
+        float: left;
+        margin-left: 200px;
+    }
+
 </style>

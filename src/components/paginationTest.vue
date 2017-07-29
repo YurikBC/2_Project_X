@@ -202,13 +202,11 @@ export default {
     
 
     .pagination {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        height: 100%;
         width: 100%;
         display: flex;
         flex-flow: nowrap;
         justify-content: center;
+        margin-right: 400px;
 
     }
     
@@ -216,8 +214,8 @@ export default {
         flex-flow: nowrap;
         justify-content: center;
         display: flex;
-        margin-left: auto;    
-        width: 100%
+          
+        
         
 
     }
@@ -226,8 +224,7 @@ export default {
         flex-flow: nowrap;
         justify-content: center;
         display: flex;
-        margin-left: auto;
-        margin-right: auto;
+
         white-space: nowrap;
             
     }
@@ -237,13 +234,13 @@ export default {
 
     .pagination_left {
         float: left;
-        padding-left: 400px;
+        padding-left: 10px;
     
     }
     .pagination_right {
         float: right;
         justify-content: flex-end;
-        padding-right: 400px;
+        padding-right: 500px;
         
 
     }

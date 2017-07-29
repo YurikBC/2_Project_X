@@ -2,8 +2,8 @@
     <div>
     <div class="post">
         <div class="vacancy_name">
-            <h4>{{posts.name}}</h4>
-            <div class='date'>{{dateNew}}</div>
+            <h4>{{post.name}}</h4><div class='date'>{{dateNew}}</div>
+            
             
         </div>
             
@@ -12,7 +12,7 @@
            <div class="company_name">
                <span>
                <i class="material-icons">work</i>Компания:
-               <p>{{posts.name}}</p>
+               <p>{{post.name}}</p>
                </span>
                
                 <div id="parallelogram"></div>
@@ -59,22 +59,23 @@
        
         data() {
             return {
-                
+                page: null,
+                posts: null
                 
             }
         },
         computed: {
+                post() {
+                var x = (this.$route.params.id - 1)
+                this.page = Math.floor((x / 10) + 1)
+                this.posts = this.$store.state.posts[x]
+                return this.$store.state.posts[x]
+            },
+
             linkTo(){
                 return this.$store.state.link
             },
 
-            posts() {
-                var x = (this.$route.params.id - 1)
-                var a = Math.floor((x / 10) + 1)
-                this.page = a
-                this.posts = this.$store.state.posts[x]
-                return this.$store.state.posts[x]
-            },
 
             totalPage: function() {
                 return this.$store.state.totalPage
@@ -97,8 +98,9 @@
 
         },
         created: function() {
-            this.$store.dispatch('allPosts', this.page)
+            this.$store.dispatch('onePost', this.page)
             this.$store.dispatch('date')
+           
 
         }
 
@@ -132,10 +134,13 @@
         padding-left: 15px;
         text-transform: capitalize;
         position: relative;
+        
     }
     
     .vacancy_name>h4 {
         font-size: 25px;
+        padding-left: 35px;
+        float: left;
     }
     
     .footer_info {
@@ -144,8 +149,14 @@
         background-color: #b6e8ff;
         flex-flow: row nowrap;
         width: 100%;
-        height: 68px;
+        height: 78px;
         padding: 5px 0px 0px 0px;
+        border: 3px solid #FFFFFF;
+        border-right: none;
+        border-left: none;
+        border-radius: 5px;
+        
+        
     }
     
     .company_name {
@@ -154,6 +165,7 @@
         text-transform: capitalize;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-left: 10px;
     }
     
     .company_name i {
@@ -179,6 +191,7 @@
         color: #1B61B8;
         vertical-align: bottom;
         margin-right: 1px;
+        
     }
     
     .footer_info p {
@@ -186,6 +199,7 @@
         text-align: center;
         line-height: 15px;
         padding-right: 8px;
+        padding-bottom: 40px;
         margin: 3px;
         letter-spacing: 0px;
         font-size: 15px;
@@ -241,32 +255,41 @@
     
     .date {
         padding-bottom: 5px;
+        float: right;
+        padding-right: 15px;
+        padding-left: 5px;
+        padding-top: 5px;
+        margin-top: 15px;
+        background-color: #B6E8FF;
+        vertical-align: middle;
+        border-left: 6px solid #60ABCD;
     }    
     #parallelogram {
         margin-left: 10px;
         left: 240px;
-        top: 83px;
+        top: 58px;
         position: absolute;
-        width: 10px;
-        height: 68px;
+        width: 8px;
+        height: 78px;
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-        background: #F2F9FE;
+        background: #FFFFFF;
+    
         
     }
     
     #parallelogram_two {
         margin-left: 10px;
         left: 410px;
-        top: 83px;
+        top: 58px;
         position: absolute;
-        width: 10px;
-        height: 68px;
+        width: 8px;
+        height: 78px;
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-        background: #F2F9FE;
+        background: #FFFFFF;
     }
     
     .link {

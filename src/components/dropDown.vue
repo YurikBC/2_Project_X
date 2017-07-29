@@ -40,7 +40,7 @@
 <style>
     #showProfileButton {
         line-height: 20px;
-        background-color: rgb(17, 93, 185);
+        background-color: #E55D03;
         padding: .5em 1.3em;
         border: none;
         border-radius: 5px;

@@ -58,11 +58,27 @@ state: {
                     }
                 }
         axios.get('https:/jsonplaceholder.typicode.com/comments', options).then((response) => {
-            response.data.forEach(post => {           if(post.isFavorite = 'underfined'){               post.isFavorite = false;  }        });
             commit('posts', { item: response.data })
             commit('id', { item: response.data.id })
             commit('currentPage', { item: page })
             commit('total', { item: response.data.length })
+            }, (err) => {
+            console.log(err)
+            
+          })
+    },         
+        
+        
+        onePost: function ({ commit }, limit ) {
+            var options = {
+                params: {
+                    _limit: limit
+                    }
+                }
+        axios.get('https:/jsonplaceholder.typicode.com/comments', options).then((response) => {
+            commit('posts', { item: response.data })
+            commit('id', { item: response.data.id })
+ 
             }, (err) => {
             console.log(err)
             
@@ -83,7 +99,9 @@ state: {
                 var year = d.getUTCFullYear();
                 var newdate = day + "/" + month + "/" + year;
                 commit('dateNew', { item: newdate })
-            }
+            },
+        
+
       
     }   
 })
