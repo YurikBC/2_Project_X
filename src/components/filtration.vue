@@ -5,23 +5,23 @@
     </div>
     
     <div class="filt_by_city">
-        <p>Город:</p>
+        <p><i class="material-icons">location_on</i>Город:</p>
     
 <div class="bloc">
    <select type="text" name="city" class="select_by_city" size="6" v-model="city">        
         <option> Брест</option>
-        <option>  Витебск</option>
+        <option> Витебск</option>
         <option> Гомель</option>
         <option> Гродно</option>
         <option> Минск</option>
    </select>
 </div>
     </div>
-    <br>
-    <hr>
+   
+    
     
 <div class="filt_by_employment" >
-    <p>Тип занятости:</p>
+    <p><i class="material-icons">watch_later</i>Тип занятости:</p>
 <div class="bloc">    
 
     <select type="text" name="employment" class="select_by_employment" size="6" v-model="employment">        
@@ -124,19 +124,22 @@ export default {
     }    
     select {
     display: inline-block;
+       
         
 
  
         
     }
     .select_by_city  {
-        height: 125px;
+        height: 145px;
         
     }     
     select option:hover{ 
-        background-color: #E55D03;
+        
         color: white;
         border-color: #FF771E;
+        border-bottom-color: #039BE5;
+        cursor: pointer;
     }    
     select option:active{ 
         background-color: #E55D03;
@@ -156,19 +159,38 @@ select option:checked
 }
     
     .select_by_employment{
-        height: 100px;
+        height: 120px;
         
     }
      p {
           font-size: 17px;
-        color: black;
         border-radius: 5px;
          padding: 0px;
          margin: 10px;
          font-weight: 400;
-         
+        color: black;
+        letter-spacing: -1.6px;
+        line-height: 30px;
+            position: relative;
+            padding: 0px 7px;
+            padding-bottom: 2px;
+            box-shadow:  inset 0px 0px 1px 1px rgba(0,0,0,0.1);
+         opacity: 1;
+         text-align: left;
+ 
+    }
+    
+    p i {
+        color: #E55D03;
+        vertical-align: middle;
+            margin-right: 5px;
+       
         
-         
+    }
+    
+    
+    p:hover {
+        box-shadow:  0px 0px 3px 1px #E55D03;
     }
     
     option{
@@ -177,7 +199,7 @@ select option:checked
     }    
     option{
     
-    padding: 2px 0px;
+    padding: 2px 10px;
         
     }    
     
@@ -194,6 +216,10 @@ select option:checked
 
 
     }
+    .filt_by_city {
+        padding: 0px;
+        margin: 0px;
+    }
 
      .bloc { 
          display:inline-block;
@@ -206,7 +232,7 @@ select option:checked
          padding-right: 50px; 
          margin:-5px 40px -5px -3px; 
          width: 300px;
-         font-size: 16px;
+         font-size: 14px;
          color: #039BE5;
          
         
@@ -220,12 +246,12 @@ select option:checked
         width: 90%;
         color: black;
         font-weight: 300;
-        border-bottom: 4px solid #d7dde0;
-    }
-    p {
-        color: black;
+        border-left: 4px solid #039BE5;
+        border-bottom: 1.5px solid #E5E5E5;
+        margin-left: 4px;
         
     }
+
     
     button {
         background-color: #039BE5;
@@ -278,5 +304,11 @@ select option:checked
     
     internal-list-box {
     
+    }
+
+
+
+    option:first-child{
+        padding-top: 10px;
     }
 </style>

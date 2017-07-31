@@ -1,13 +1,18 @@
 <template>
     <div class = "container registration-body">
         <div class="registration">
-            <h2>Log In</h2>
+        <div class="registration_cont">
+          
+           <br>
+            <h2>Registration</h2>
+            <br>
             <table>
                 <tr>
-                    <td>
-                        <label class="lbl"><p>NickName</p></label>
+                    <td class='left_col'>
+                       <div class="try">
+                        <label class="lbl"><p>NickName</p></label></div>
                     </td>
-                    <td>
+                    <td >
                         <div class="login">
                             <input type="text" maxlength="16" name="NickName" v-model="newUser.name" placeholder="Login" > 
                             <br>
@@ -17,7 +22,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class='left_col'>
                         <label class="lbl"><p>Email</p></label>
                     </td>
                     <td>
@@ -30,7 +35,7 @@
                     
                 </tr>
                 <tr>
-                    <td>
+                    <td class='left_col'>
                         <label class="lbl"><p>City</p></label>
                     </td>
                     <td>
@@ -47,7 +52,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class='left_col'>
                         <label class="lbl"><p>Password</p></label> 
                     </td>
                     <td>
@@ -61,7 +66,7 @@
                     </td>
                 </tr>
                 <tr>
-                   <td>
+                   <td class='left_col'>
                         <label class="lbl"><p>Confirm password</p></label> 
                    </td>
                     <td>
@@ -75,13 +80,15 @@
                     </td>
                      
                 </tr>
-                <tr>
+                <tr class="checkbox_tr">
+                   <td>
                     <div class="checkbox">
-                        <input type="checkbox" class = "chbox" id="chbox" v-model="newUser.mailing">
-                        <label class="lblchk ">
                             <p>I want to receive newsletters about new vacancies</p>
-                        </label>
                     </div>
+                    </td>
+                    <td>
+                        <input type="checkbox" class = "chbox" id="chbox" v-model="newUser.mailing">
+                    </td>
                 </tr>
                 <tr>
                     <button :class="{active: disable_btn}" :disabled="disable_btn" @click.prevent="on_signup">
@@ -91,6 +98,7 @@
    
             </table>     
         </div>
+    </div>
     </div>
     
 </template>
@@ -250,53 +258,54 @@
     * {
         background-color: #039BE5;
         color: white;
-        text-align: center;
+       
+        margin: auto;
+        
     }
 
+    table{
+        table-layout: fixed;
+        width: 40%;
+    }
     p {
         color: black
     }
     
     tr{
         line-height: 0px;
-        padding: 0px;
+        
+        
         
     }
     
     td {
         border: 1px solid black;
         text-align: left;
+        vertical-align: middle;
+        
     }
     
     .container {
-        background: #FFF;
-        width: 1000px;
-        height: 400px;
+        background: #039BE5;
+        width: 900px;
+        height: 300px;
         margin: 200px auto;
         text-align: center;
         border-radius: 15px;
         color: red;
+        box-shadow: 1px 2px 4px 2px rgba(0,0,0,0.15);
     }
+
     
     input {
         border-radius: 5px;
         width: 250px;
-        margin-top: 10px;
-        /*border-color: red;*/
+        margin-top: 0px;
     }
     
     
-    .col-sm-3 {
-        height: 46px;
-        text-align: left;
-    }
-    
-    .col-sm-9 {
-        height: 46px;
-    }
     
     select {
-        margin-top: 10px;
         width: 250px;
         text-align: center;
         border-radius: 5px;
@@ -313,20 +322,36 @@
         height: 35px;
     }
     
-    span {
-        color: red;
-    }
-    
-
-    
-    .lblchk {
-        margin-top: 15px;
-    }
     
     select {
         display: inline-block;
     }
+
+    td{
+        width: 250px;
+        border: none;
+        
+    }
     
+    .left_col {
+        width: 130px;
+        border-bottom: 1px solid white;
+    }
+    
+
+    .checkbox{
+        display: block;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 470px;
+        padding-bottom: 10px;
+        vertical-align: top;
+            
+        
+    }
+
+    
+
     /*попробовать стиль к валидации на ввод всех полей
     (нужна будет какая то булевская переменная которая будет смотреть за заполненностью и если все плохо поля подсвечиваются
      красным, иначе все нормас)

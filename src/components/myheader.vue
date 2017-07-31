@@ -92,7 +92,7 @@ header ul {
     
     .reg > p {
         font-size: 20px;
-        background-color: #E55D03;
+        background-color: #ef7f35;
         padding: .5em 1.3em;
         border-radius: 5px;
        
