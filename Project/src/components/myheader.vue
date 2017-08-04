@@ -19,7 +19,6 @@
                         </router-link>
                     </li>                 
                 <div class="right_container">
-<<<<<<< HEAD
                    
                                          <li >
                        <div class="dropdown">
@@ -28,15 +27,15 @@
                
                        </div>
                     </li>
-                             <li>
+                    <li>
+                       <li>
                        <router-link to="/singIn">
                           <div class="reg">
                                <p>Войти</p>
                            </div>
                         </router-link>
                     </li>  
-=======
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
+
                     <li>
                        <router-link to="/registration">
                           <div class="reg">
@@ -44,19 +43,9 @@
                            </div>
                         </router-link>
                     </li>  
-<<<<<<< HEAD
-                      <div id="parallelogram"></div>                     
+                 
 
-=======
-                                          
-                      <li >
-                       <div class="dropdown">
-       
-                           <p><dropDown></dropDown></p>
-               
-                       </div>
-                    </li>
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
+
                 </div>    
                 </ul>
             </div>
@@ -95,10 +84,6 @@ header {
     padding-left: 15px;
     margin-top: 0px;
     min-height: 80px;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
 
     
 }
@@ -119,24 +104,17 @@ header ul {
     
     .reg > p {
         font-size: 20px;
-<<<<<<< HEAD
-        background-color: #EF7F35;
-=======
         background-color: #ef7f35;
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
         padding: .5em 1.3em;
         border-radius: 5px;
        
 
     }
     
-<<<<<<< HEAD
-=======
     .dropdown {
        
         
     }
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
     
     .right_container{
         display: inline-block;
@@ -151,16 +129,9 @@ header ul {
         margin-right: 30px;
     }
 
-<<<<<<< HEAD
         a:hover {
         text-decoration: none !important;
         
     }
-    
-
-        
-    
-=======
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
 
 </style>

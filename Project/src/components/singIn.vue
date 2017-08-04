@@ -4,7 +4,7 @@
    <div class="container">
     <form class="singin-form">
       <div class="auth-form-body">
-                 
+
             <div class="try">
             <h2>Sign In</h2>
             </div>
@@ -25,6 +25,10 @@
             <span class="error_control" v-show="isErrorPswd">{{ passwordMsg }}</span>
             <br>
             <br>
+            <tr>
+                <input class="check" type="checkbox" v-model="user.remember">
+                <label class="label_c" @click.prevent="user.remember = !user.remember">Remember me</label>
+            </tr>
           <tr class='tr'>
             <input class="btn" data-disable-with="Signing in…" name="commit" tabindex="2" type="submit" value="Sign in" @click.prevent="onSingIn"/>
           </tr>
@@ -43,7 +47,8 @@ export default {
     return {
         user:{
             mail: '',
-            password:''
+            password:'',
+            remember: false
         },
         showSignOut: false,
         showForm: false,
@@ -132,7 +137,8 @@ export default {
             else{
                 axios.post('http://jsonplaceholder.typicode.com/posts', {
                     mail: this.user.mail,
-                    password: this.user.password
+                    password: this.user.password,
+                    remember: this.user.remember
                 }).then(function (response) {
                     console.log(response);
                 })
@@ -183,7 +189,7 @@ export default {
      background-position: center;
      background-attachment: fixed;
 }
-    
+
     .label {
         width: 550px;
         height: 200px;
@@ -213,20 +219,20 @@ li {
 a {
   color: #ff7f2b;
 }
-    
+
     label {
         color: white;
         font-size: 15px;
-        
+
     }
         input{
-       
+
         background-color: white;
         border-bottom-color: grey;
         border-radius: 10px;
         color: black;
         padding-left: 5px;
-        border: none!important; 
+        border: none!important;
         padding-left: 5px;
         position: relative;
         height: 35px;
@@ -243,7 +249,7 @@ a {
         width: 100px;
         height: 40px;
     }
-    
+
                 .input:focus{
                 border-color: inherit;
                 -webkit-box-shadow: none;
@@ -261,17 +267,17 @@ a {
         box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.15);
         cursor: pointer;
         text-align: center;
-        
+
     }
-    
+
     .btn:active {
         transform: translateY(4)
     }
-    
+
     .btn:hover{
         box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.3);
     }
-    
+
     .tr {
         text-align: center;
     }
@@ -280,16 +286,24 @@ a {
         margin-right: 10px;
             margin-top:0px;
     }
-    
+
     span {
-        color: black;
+        color: white;
         font-style: italic;
-        opacity: 0.7;
+        opacity: 1;
     }
-    
+
     .top {
         margin-top: 40px;
     }
-    
-    
+
+    .check{
+    margin-bottom: 10px;
+    }
+    .label_c{
+      margin-top: -20px;
+      margin-bottom: 25px;
+    }
+
+
 </style>

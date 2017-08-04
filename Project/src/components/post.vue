@@ -3,15 +3,11 @@
     <div class="post">
         <div class="vacancy_name">
             <h4>{{post.name}}</h4><div class='date'>{{dateNew}}</div>
-<<<<<<< HEAD
-        </div>
-=======
             
             
         </div>
             
         
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
         <div class="footer_info">
            <div class="company_name">
                <span>
@@ -43,11 +39,8 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
 
     
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
     <div class="discription">
 
       <div class="link" @click="link"><span><i class="material-icons">link</i>Ссылка на оригинал</span></div>
@@ -114,13 +107,10 @@
     }
 
 </script>
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
 <style scoped>
     .post {
         background-color: #f2f9fe;
@@ -155,20 +145,15 @@
     
     .footer_info {
         display: flex;
-        border-left: 9px solid #90dafc;
-<<<<<<< HEAD
-        background-color: white;
-=======
-        background-color: #b6e8ff;
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
+        background-color: #c1eaff;
         flex-flow: row nowrap;
         width: 100%;
         height: 78px;
         padding: 5px 0px 0px 0px;
-        border: 3px solid #FFFFFF;
+     
         border-right: none;
         border-left: none;
-        border-radius: 5px;
+        
         
         
     }
@@ -288,11 +273,7 @@
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-<<<<<<< HEAD
         background: #F2F9FE;
-=======
-        background: #FFFFFF;
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
     
         
     }
@@ -307,11 +288,7 @@
         -webkit-transform: skew(42deg);
         -moz-transform: skew(20deg);
         -o-transform: skew(20deg);
-<<<<<<< HEAD
         background: #F2F9FE;
-=======
-        background: #FFFFFF;
->>>>>>> 320cc0e4a3ea572bd0d901176b2f7dc90ba6aa51
     }
     
     .link {
